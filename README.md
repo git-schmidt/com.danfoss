@@ -1,9 +1,8 @@
-# Danfoss LC12 / LC13 support for Athom Homey  
-Makes Homey work with the z-wave version of the Danfoss LC12 and LC13 models  
+# Danfoss LC13 support for Athom Homey  
+Makes Homey work with the Z-Wave version of the Danfoss LC13.  
    
 ## Supported devices with most common parameters:
 * Danfoss LC13
-* Danfoss LC12
    
 ## Supported Languages:
 * English
