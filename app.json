@@ -54,8 +54,8 @@
     {
       "id": "LC13",
       "name": {
-        "en": "LC Thermostat",
-        "nl": "LC Thermostaat"
+        "en": "LC13 Thermostat",
+        "nl": "LC13 Thermostaat"
       },
       "energy": {
         "batteries": [
