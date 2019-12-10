@@ -1,5 +1,8 @@
 {
   "2.1.1": {
     "en": "Updated homey-meshdriver, added readme, removed references to LC12."
+  },
+  "2.1.2": {
+    "en": "Fixes typo, deprecates redundant Flow card."
   }
 }
