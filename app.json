@@ -5,11 +5,11 @@
     "en": "Danfoss",
     "nl": "Danfoss"
   },
-  "version": "2.1.1",
+  "version": "2.1.2",
   "compatibility": ">=3.0.0",
   "description": {
     "en": "Danfoss Thermostat valves support for Homey",
-    "nl": "Danfoss Theromstaat knoppen ondersteuning voor Homey"
+    "nl": "Danfoss Thermostaat knoppen ondersteuning voor Homey"
   },
   "category": [
     "climate"
@@ -77,8 +77,8 @@
         ],
         "learnmode": {
           "instruction": {
-            "en": "Press the middle button on your Danfoss LC",
-            "nl": "Druk op de middelste knop van de Danfoss LC"
+            "en": "Press the middle button on your Danfoss LC13",
+            "nl": "Druk op de middelste knop van de Danfoss LC13"
           }
         },
         "associationGroups": [
@@ -134,6 +134,7 @@
     "triggers": [
       {
         "id": "battery_alarm",
+        "deprecated": true,
         "title": {
           "en": "The battery alarm turned on",
           "nl": "De batterijwaarschuwing gaat aan"
