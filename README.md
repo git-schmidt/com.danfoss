@@ -3,6 +3,7 @@ Makes Homey work with the Z-Wave version of the Danfoss LC13.
    
 ## Supported devices with most common parameters:
 * Danfoss LC13
+* Danfoss RS-Z Room Sensor
    
 ## Supported Languages:
 * English
