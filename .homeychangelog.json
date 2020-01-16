@@ -4,5 +4,8 @@
   },
   "2.1.2": {
     "en": "Fixes typo, deprecates redundant Flow card."
+  },
+  "2.1.3": {
+    "en": "Added support for RS-Z Room Sensor."
   }
 }
