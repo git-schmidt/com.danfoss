@@ -11,6 +11,9 @@ Makes Homey work with the Z-Wave version of the Danfoss LC13.
    
 ## Change Log:
 
+### v 2.1.3
+Adds support for Danfoss RS-Z Room Sensor
+
 ### v 2.1.0
 Adds support for Energy
 
