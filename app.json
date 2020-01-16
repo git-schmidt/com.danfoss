@@ -5,11 +5,11 @@
     "en": "Danfoss",
     "nl": "Danfoss"
   },
-  "version": "2.1.2",
+  "version": "2.1.3",
   "compatibility": ">=3.0.0",
   "description": {
-    "en": "Danfoss Thermostat valves support for Homey",
-    "nl": "Danfoss Thermostaat knoppen ondersteuning voor Homey"
+    "en": "Danfoss products support for Homey",
+    "nl": "Danfoss producten ondersteuning voor Homey"
   },
   "category": [
     "climate"
@@ -20,14 +20,16 @@
       "heating",
       "valve",
       "thermovalve",
-      "danfoss"
+      "danfoss",
+      "RS-Z"
     ],
     "nl": [
       "thermostaat",
       "verwarming",
       "ventiel",
       "thermostaatknop",
-      "danfoss"
+      "danfoss",
+      "RS-Z"
     ]
   },
   "images": {
@@ -47,6 +49,44 @@
       {
         "name": "Marco Ruiter",
         "email": "mruiter@tuxweb.nl"
+      },
+      {
+        "name": "Menno Bliek (Momotica)",
+        "email": "menno@momotica.nl"
+      }
+    ]
+  },
+  "flow": {
+    "triggers": [
+      {
+        "id": "battery_alarm",
+        "deprecated": true,
+        "title": {
+          "en": "The battery alarm turned on",
+          "nl": "De batterijwaarschuwing gaat aan"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=LC13"
+          }
+        ]
+      },
+      {
+        "id": "battery_alarm",
+        "deprecated": true,
+        "title": {
+          "en": "The battery alarm turned on",
+          "nl": "De batterijwaarschuwing gaat aan"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=RS"
+          }
+        ]
       }
     ]
   },
@@ -128,26 +168,325 @@
         "large": "/drivers/LC13/assets/images/large.jpg",
         "small": "/drivers/LC13/assets/images/small.jpg"
       }
-    }
-  ],
-  "flow": {
-    "triggers": [
-      {
-        "id": "battery_alarm",
-        "deprecated": true,
-        "title": {
-          "en": "The battery alarm turned on",
-          "nl": "De batterijwaarschuwing gaat aan"
+    },
+    {
+      "id": "RS",
+      "name": {
+        "en": "RS-Z Room Sensor",
+        "nl": "RS-Z Kamer Sensor"
+      },
+      "class": "thermostat",
+      "capabilities": [
+        "measure_temperature",
+        "target_temperature",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "images": {
+        "large": "/drivers/RS/assets/images/large.jpg",
+        "small": "/drivers/RS/assets/images/small.jpg"
+      },
+      "energy": {
+        "batteries": [
+          "AA",
+          "AA"
+        ]
+      },
+      "zwave": {
+        "manufacturerId": 2,
+        "productTypeId": [
+          3
+        ],
+        "wakeUpInterval": 1800,
+        "productId": [
+          32784
+        ],
+        "learnmode": {
+          "instruction": {
+            "en": "Press the LED button on your Danfoss RS-Z.",
+            "nl": "Druk op de LED knop van de Danfoss RS-Z."
+          }
         },
-        "args": [
+        "unlearnmode": {
+          "instruction": {
+            "en": "Hold down the 3 buttons on the RS-Z for 5 seconds (up, down and LED button).",
+            "nl": "Houd de 3 knoppen op de RS-Z 5 seconden ingedrukt (omhoog, omlaag en LED knop)."
+          }
+        },
+        "associationGroups": [
+          1
+        ],
+        "associationGroupsOptions": {
+          "1": {
+            "hint": {
+              "en": "Lifeline. All run-time reporting is addressed to this group. Only one node can be assigned to this association group. \nDefault: 1 (Homey's ID)",
+              "nl": "Lifeline: Association Groep 1 wordt gebruikt om alle rapportages door te geven. Slechts een node kan toegevoegd worden aan deze associatie groep. \nStandaard: 1 (Homey's ID)"
+            }
+          }
+        },
+        "defaultConfiguration": [
           {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=LC13"
+            "id": 1,
+            "size": 2,
+            "value": 5
+          },
+          {
+            "id": 2,
+            "size": 2,
+            "value": 5
+          },
+          {
+            "id": 3,
+            "size": 2,
+            "value": 12
+          },
+          {
+            "id": 4,
+            "size": 2,
+            "value": 28
+          },
+          {
+            "id": 5,
+            "size": 2,
+            "value": 1
+          },
+          {
+            "id": 6,
+            "size": 1,
+            "value": 1
+          },
+          {
+            "id": 7,
+            "size": 1,
+            "value": 1
+          },
+          {
+            "id": 8,
+            "size": 1,
+            "value": 1
+          },
+          {
+            "id": 9,
+            "size": 1,
+            "value": 1
+          },
+          {
+            "id": 10,
+            "size": 1,
+            "value": 5
+          },
+          {
+            "id": 11,
+            "size": 1,
+            "value": 1
           }
         ]
-      }
-    ],
-    "actions": []
-  }
+      },
+      "capabilitiesOptions": {
+        "target_temperature": {
+          "min": 0,
+          "max": 40,
+          "step": 0.5
+        }
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Temperature settings",
+            "nl": "Temperatuur instellingen"
+          },
+          "collapsed": false,
+          "children": [
+            {
+              "id": "Temperature_Report_threshold",
+              "type": "number",
+              "label": {
+                "en": "Temperature Report threshold",
+                "nl": "Drempel temperatuurrapport"
+              },
+              "hint": {
+                "en": "From 0.1 to 10°C in 0.1°C steps",
+                "nl": "Van 0.1 tot 10°C in stappen van 0.1°C"
+              },
+              "zwave": {
+                "index": 1,
+                "size": 2
+              },
+              "attr": {
+                "min": 1,
+                "max": 100
+              },
+              "value": 5
+            },
+            {
+              "id": "Set-point_display_resolution",
+              "type": "number",
+              "label": {
+                "en": "Set-point display resolution",
+                "nl": "Temperatuur instel waarde"
+              },
+              "hint": {
+                "en": "From 0.1 to 10°C in 0.1°C steps",
+                "nl": "Van 0.1 tot 10°C in stappen van 0.1°C"
+              },
+              "zwave": {
+                "index": 2,
+                "size": 2
+              },
+              "attr": {
+                "min": 1,
+                "max": 100
+              },
+              "value": 5
+            },
+            {
+              "id": "Min_setpoint",
+              "type": "number",
+              "label": {
+                "en": "Min set-point and override limit",
+                "nl": "Minimale instelbare temperatuur"
+              },
+              "hint": {
+                "en": "From min 0°C to max setpoint/override limit",
+                "nl": "Van minimaal 0°C tot de maximale instelbare temperatuur"
+              },
+              "zwave": {
+                "index": 3,
+                "size": 2
+              },
+              "attr": {
+                "min": 0,
+                "max": 40
+              },
+              "value": 12
+            },
+            {
+              "id": "Max_setpoint",
+              "type": "number",
+              "label": {
+                "en": "Max set-point and override limit",
+                "nl": "Maximale instelbare temperatuur"
+              },
+              "hint": {
+                "en": "From min setpoint/override limit to max 40°C",
+                "nl": "Van minimale instelbare temperatuu tot max 40°C"
+              },
+              "zwave": {
+                "index": 4,
+                "size": 2
+              },
+              "attr": {
+                "min": 0,
+                "max": 40
+              },
+              "value": 28
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "LED settings",
+            "nl": "LED instellingen"
+          },
+          "collapsed": false,
+          "children": [
+            {
+              "id": "LED_Flash_period",
+              "type": "number",
+              "label": {
+                "en": "LED Flash period",
+                "nl": "LED Kipper tijd"
+              },
+              "hint": {
+                "en": "Seconds",
+                "nl": "Secondes"
+              },
+              "zwave": {
+                "index": 5,
+                "size": 2
+              },
+              "attr": {
+                "min": 0,
+                "max": 32767
+              },
+              "value": 1
+            },
+            {
+              "id": "LED_on_time",
+              "type": "number",
+              "label": {
+                "en": "LED on time",
+                "nl": "LED aan tijd"
+              },
+              "hint": {
+                "en": "100 to 500ms in 100ms steps",
+                "nl": "100 tot 500ms in stappen van 100ms"
+              },
+              "zwave": {
+                "index": 9,
+                "size": 1
+              },
+              "attr": {
+                "min": 1,
+                "max": 5
+              },
+              "value": 1
+            },
+            {
+              "id": "Number_of_LED_flashes",
+              "type": "number",
+              "label": {
+                "en": "Number of LED flashes (duration)",
+                "nl": "Aantal maal LED knippert (tijd)"
+              },
+              "hint": {
+                "en": "Flashes",
+                "nl": "Knippert"
+              },
+              "zwave": {
+                "index": 10,
+                "size": 2
+              },
+              "attr": {
+                "min": 0,
+                "max": 255
+              },
+              "value": 5
+            },
+            {
+              "id": "LED_Color",
+              "type": "dropdown",
+              "label": {
+                "en": "LED Color",
+                "nl": "LED Kleur"
+              },
+              "zwave": {
+                "index": 11,
+                "size": 1
+              },
+              "value": "1",
+              "values": [
+                {
+                  "id": "1",
+                  "label": {
+                    "en": "Green",
+                    "nl": "Groen"
+                  }
+                },
+                {
+                  "id": "2",
+                  "label": {
+                    "en": "Red",
+                    "nl": "Rood"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
