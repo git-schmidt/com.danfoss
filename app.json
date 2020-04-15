@@ -67,6 +67,11 @@
         },
         "args": [
           {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=LC13"
+          },
+          {
             "name": "device",
             "type": "device",
             "filter": "driver_id=LC13"
@@ -81,6 +86,11 @@
           "nl": "De batterijwaarschuwing gaat aan"
         },
         "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=RS"
+          },
           {
             "name": "device",
             "type": "device",
@@ -183,8 +193,8 @@
         "alarm_battery"
       ],
       "images": {
-        "large": "/drivers/RS/assets/images/large.jpg",
-        "small": "/drivers/RS/assets/images/small.jpg"
+        "large": "/drivers/RS/assets/images/large.png",
+        "small": "/drivers/RS/assets/images/small.png"
       },
       "energy": {
         "batteries": [

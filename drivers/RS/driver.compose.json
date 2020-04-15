@@ -12,8 +12,8 @@
         "alarm_battery"
       ],
       "images": {
-        "large": "/drivers/RS/assets/images/large.jpg",
-        "small": "/drivers/RS/assets/images/small.jpg"
+        "large": "/drivers/RS/assets/images/large.png",
+        "small": "/drivers/RS/assets/images/small.png"
       },
       "energy": {
         "batteries": [
