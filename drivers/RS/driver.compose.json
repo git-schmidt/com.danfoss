@@ -1,0 +1,121 @@
+{
+      "id": "RS",
+      "name": {
+        "en": "RS-Z Room Sensor",
+        "nl": "RS-Z Kamer Sensor"
+      },
+      "class": "thermostat",
+      "capabilities": [
+        "measure_temperature",
+        "target_temperature",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "images": {
+        "large": "/drivers/RS/assets/images/large.jpg",
+        "small": "/drivers/RS/assets/images/small.jpg"
+      },
+      "energy": {
+        "batteries": [
+          "AA",
+          "AA"
+        ]
+      },
+      "zwave": {
+        "manufacturerId": 2,
+        "productTypeId": [
+          3
+        ],
+        "wakeUpInterval": 1800,
+        "productId": [
+          32784
+        ],
+        "learnmode": {
+          "instruction": {
+            "en": "Press the LED button on your Danfoss RS-Z.",
+            "nl": "Druk op de LED knop van de Danfoss RS-Z."
+          }
+        },
+    "unlearnmode": {
+      "instruction": {
+        "en": "Hold down the 3 buttons on the RS-Z for 5 seconds (up, down and LED button).",
+        "nl": "Houd de 3 knoppen op de RS-Z 5 seconden ingedrukt (omhoog, omlaag en LED knop)."
+      }
+    },
+        "associationGroups": [
+      1
+    ],
+    "associationGroupsOptions": {
+      "1": {
+        "hint": {
+          "en": "Lifeline. All run-time reporting is addressed to this group. Only one node can be assigned to this association group. \nDefault: 1 (Homey's ID)",
+          "nl": "Lifeline: Association Groep 1 wordt gebruikt om alle rapportages door te geven. Slechts een node kan toegevoegd worden aan deze associatie groep. \nStandaard: 1 (Homey's ID)"
+        }
+      }
+    },
+    "defaultConfiguration": [
+      {
+        "id": 1,
+        "size": 2,
+        "value": 5
+      },
+      {
+        "id": 2,
+        "size": 2,
+        "value": 5
+      },
+      {
+        "id": 3,
+        "size": 2,
+        "value": 12
+      },
+      {
+        "id": 4,
+        "size": 2,
+        "value": 28
+      },
+      {
+        "id": 5,
+        "size": 2,
+        "value": 1
+      },
+      {
+        "id": 6,
+        "size": 1,
+        "value": 1
+      },
+      {
+        "id": 7,
+        "size": 1,
+        "value": 1
+      },
+      {
+        "id": 8,
+        "size": 1,
+        "value": 1
+      },
+      {
+        "id": 9,
+        "size": 1,
+        "value": 1
+      },
+      {
+        "id": 10,
+        "size": 1,
+        "value": 5
+      },
+      {
+        "id": 11,
+        "size": 1,
+        "value": 1
+      }
+    ]
+      },
+      "capabilitiesOptions": {
+        "target_temperature": {
+          "min": 0,
+          "max": 40,
+          "step": 0.5
+        }
+      }
+    }
